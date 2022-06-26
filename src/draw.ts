@@ -1,13 +1,13 @@
 import * as robot from "robotjs";
 
-const { x, y } = robot.getMousePos();
+
 const screenSize = robot.getScreenSize();
 const screenHeight = screenSize.height;
 const screedWidth = screenSize.width-1;
 
 const circle = (radius:number) => {
     if(checkRadius(radius)) {
-
+        const { x, y } = robot.getMousePos();
         robot.mouseToggle("down", "left");
         let steps = 2*Math.PI*radius;
         let centerX = x+radius;
@@ -25,6 +25,7 @@ const circle = (radius:number) => {
 
 const square = (size:number) => {
     if(checkSquareSize(size)) {
+        const { x, y } = robot.getMousePos();
         robot.mouseToggle("down", "left");
         let sqX = x;
         let sqY = y;
@@ -46,6 +47,7 @@ const square = (size:number) => {
 
 const rectangle = (width:number, height:number) => {
     if(checkRectSize(width, height)) {
+        const { x, y } = robot.getMousePos();
         robot.mouseToggle("down", "left");
         let sqX = x;
         let sqY = y;
@@ -69,6 +71,7 @@ const rectangle = (width:number, height:number) => {
 
 function checkRadius(value:number): boolean
 {
+    const { x, y } = robot.getMousePos();
     if(x+(2*value) > screedWidth
     || y + value < 0
     || y - value > screenHeight) {
@@ -80,6 +83,7 @@ function checkRadius(value:number): boolean
 
 function checkSquareSize(value:number): boolean
 {
+    const { x, y } = robot.getMousePos();
     if(x+value > screedWidth
     || y - value > screenHeight) {
         console.log('Your square goes out of screen borders')
@@ -90,6 +94,7 @@ function checkSquareSize(value:number): boolean
 
 function checkRectSize(width:number, height:number): boolean
 {
+    const { x, y } = robot.getMousePos();
     if(x+width > screedWidth
     || y - height > screenHeight) {
         console.log('Your square goes out of screen borders')
