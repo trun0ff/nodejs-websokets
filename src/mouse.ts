@@ -1,9 +1,9 @@
 import * as robot from 'robotjs';
 
 let { x, y } = robot.getMousePos();
-var screenSize = robot.getScreenSize();
-var height = screenSize.height;
-var width = screenSize.width-1;
+const screenSize = robot.getScreenSize();
+const height = screenSize.height;
+const width = screenSize.width-1;
 
 const up = (dy:number) => {
     y = prepareDy(y-dy);
