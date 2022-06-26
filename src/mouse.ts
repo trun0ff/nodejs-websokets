@@ -1,26 +1,29 @@
 import * as robot from 'robotjs';
 
-let { x, y } = robot.getMousePos();
 const screenSize = robot.getScreenSize();
 const height = screenSize.height;
 const width = screenSize.width-1;
 
 const up = (dy:number) => {
+    let { x, y } = robot.getMousePos();
     y = prepareDy(y-dy);
     robot.moveMouseSmooth(x, y);
 };
 
 const down = (dy:number) => {
+    let { x, y } = robot.getMousePos();
     y = prepareDy(y+dy);
     robot.moveMouseSmooth(x, y);
 };
 
 const left = (dx:number) => {
+    let { x, y } = robot.getMousePos();
     x = prepareDx(x-dx);
     robot.moveMouseSmooth(x, y);
 };
 
 const right = (dx:number) => {
+    let { x, y } = robot.getMousePos();
     x = prepareDx(x+dx);
     robot.moveMouseSmooth(x, y);
 };
